@@ -3,15 +3,23 @@
   "version": "1.0.0",
   "main": "expo-router/entry",
   "dependencies": {
+    "@expo-google-fonts/outfit": "^0.4.3",
+    "@expo-google-fonts/plus-jakarta-sans": "^0.4.2",
     "@types/jest": "30.0.0",
     "eslint-config-expo": "~58.0.4",
     "expo": "~58.0.26",
+    "expo-auth-session": "~58.0.19",
     "expo-constants": "~58.0.16",
+    "expo-crypto": "~58.0.8",
+    "expo-font": "~58.0.12",
+    "expo-haptics": "~58.0.8",
     "expo-linking": "~58.0.17",
     "expo-router": "~58.0.32",
+    "expo-secure-store": "~58.0.3",
     "expo-splash-screen": "~58.0.14",
     "expo-status-bar": "~58.0.5",
     "expo-system-ui": "~58.0.7",
+    "expo-web-browser": "~58.1.0",
     "jest": "~30.5.2",
     "jest-expo": "~58.0.15",
     "react": "19.3.0",
@@ -36,7 +44,7 @@
     "web": "expo start --web",
     "ios": "expo start --ios",
     "android": "expo start --android",
-    "build:web": "expo export --platform web",
+    "build:web": "node scripts/build-web.js",
     "typecheck": "tsc --noEmit",
     "lint": "expo lint",
     "test": "jest"
@@ -44,6 +52,9 @@
   "private": true,
   "jest": {
     "preset": "jest-expo",
+    "setupFiles": [
+      "<rootDir>/jest.setup.js"
+    ],
     "moduleNameMapper": {
       "^@/(.*)$": "<rootDir>/src/$1"
     }

@@ -93,3 +93,24 @@ describe('apiPost', () => {
     expect(error.code).toBe('network_error');
   });
 });
+
+describe('ApiError details', () => {
+  it('keeps error.details, for example the waiting invites', async () => {
+    globalThis.fetch = jest.fn().mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          error: {
+            code: 'invites_waiting',
+            message: 'You have waiting invites',
+            details: { invites: [{ invite_id: 'i1' }] },
+          },
+        }),
+        { status: 409 },
+      ),
+    );
+    await expect(apiPost('/first-login-household')).rejects.toMatchObject({
+      code: 'invites_waiting',
+      details: { invites: [{ invite_id: 'i1' }] },
+    });
+  });
+});

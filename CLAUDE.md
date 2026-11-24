@@ -37,7 +37,7 @@ Keep non-route code out of `src/app/`. Import with the `@/` alias (maps to `src/
 ```bash
 npm start            # expo dev server
 npm run web          # dev server for web
-npm run build:web    # static web export to dist/
+npm run build:web    # static web export to dist/ (needs EXPO_PUBLIC_API_URL set, not localhost)
 npm run typecheck    # tsc --noEmit
 npm run lint         # expo lint
 npm test             # jest

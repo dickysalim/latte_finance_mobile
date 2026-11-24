@@ -1,0 +1,41 @@
+/** Monochrome palette taken from the old Latte Factor app (Tailwind gray scale). */
+export const colors = {
+  white: '#FFFFFF',
+  gray50: '#F9FAFB',
+  gray100: '#F3F4F6',
+  gray200: '#E5E7EB',
+  gray300: '#D1D5DB',
+  gray400: '#9CA3AF',
+  gray500: '#6B7280',
+  gray600: '#4B5563',
+  gray700: '#374151',
+  gray800: '#1F2937',
+  gray900: '#111827',
+  red50: '#FEF2F2',
+  red500: '#EF4444',
+  red600: '#DC2626',
+  green50: '#F0FDF4',
+  green600: '#16A34A',
+} as const;
+
+/** Meaning-based names. Screens and components use these, not the scale. */
+export const palette = {
+  background: colors.gray50,
+  surface: colors.white,
+  border: colors.gray200,
+  borderStrong: colors.gray300,
+  textHeading: colors.gray900,
+  textBody: colors.gray700,
+  textMuted: colors.gray600,
+  textHint: colors.gray500,
+  textPlaceholder: colors.gray400,
+  primary: colors.gray900,
+  primaryPressed: colors.gray800,
+  onPrimary: colors.white,
+  error: colors.red600,
+  errorBorder: colors.red500,
+  errorSurface: colors.red50,
+  success: colors.green600,
+  successSurface: colors.green50,
+  disabled: colors.gray300,
+} as const;

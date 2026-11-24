@@ -10,6 +10,8 @@ export class ApiError extends Error {
     public readonly code: string,
     message: string,
     public readonly fields?: ApiErrorFields,
+    /** Extra data next to code and message, for example `{ invites: [...] }` on invites_waiting. */
+    public readonly details?: Record<string, unknown>,
   ) {
     super(message);
     this.name = 'ApiError';
@@ -60,7 +62,13 @@ function toApiError(response: Response, data: unknown): ApiError {
   const code = typeof error?.code === 'string' ? error.code : 'unknown_error';
   const message =
     typeof error?.message === 'string' ? error.message : response.statusText || 'Request failed';
-  return new ApiError(response.status, code, message, toFields(error?.fields));
+  return new ApiError(
+    response.status,
+    code,
+    message,
+    toFields(error?.fields),
+    isRecord(error?.details) ? error.details : undefined,
+  );
 }
 
 function toFields(value: unknown): ApiErrorFields | undefined {

@@ -29,7 +29,7 @@ npm start                    # or: npm run web
 | --- | --- |
 | `npm start` | Expo dev server |
 | `npm run web` | Dev server for web |
-| `npm run build:web` | Static web export to `dist/` |
+| `npm run build:web` | Static web export to `dist/`. Needs `EXPO_PUBLIC_API_URL` set to the deployed worker (it refuses to build without it) |
 | `npm run typecheck` | TypeScript check |
 | `npm run lint` | ESLint |
 | `npm test` | Jest tests |
