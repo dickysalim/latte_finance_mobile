@@ -1,6 +1,6 @@
 # Latte Finance Mobile
 
-React Native (Expo SDK 58) app, TypeScript strict, expo-router. One codebase for iOS, Android and web. The web build (`npm run build:web`, output `dist/`) is hosted on Cloudflare Pages from GitHub pushes.
+React Native (Expo SDK 58) app, TypeScript strict, expo-router. One codebase for iOS, Android and web. The web build (`npm run build:web`, output `dist/`) is hosted on Cloudflare (Workers static assets, `wrangler.jsonc`) from GitHub pushes.
 
 **This repository is PUBLIC and is the owner's showcase.** Everything committed is visible to the world, forever (git history included). Treat every commit as a publication.
 
