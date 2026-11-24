@@ -74,8 +74,11 @@ export default function LoginScreen() {
 
   return (
     <Screen>
-      <AuthHeader title="Welcome back" subtitle="Log in to see where your money goes." />
+      <AuthHeader />
       <Card>
+        <ThemedText variant="title" accessibilityRole="header" style={{ textAlign: 'center' }}>
+          Log in
+        </ThemedText>
         <TextField
           label="Email or username"
           value={identifier}
