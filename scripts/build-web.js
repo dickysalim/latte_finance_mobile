@@ -6,7 +6,7 @@ const url = process.env.EXPO_PUBLIC_API_URL;
 if (!url || /localhost|127\.0\.0\.1/.test(url)) {
   console.error(
     'build:web needs EXPO_PUBLIC_API_URL set to the deployed worker URL (not localhost).\n' +
-      'Example: EXPO_PUBLIC_API_URL=https://latte-finance-worker.latte-factor.workers.dev npm run build:web',
+      'Example: EXPO_PUBLIC_API_URL=https://api.lattefinance.app npm run build:web',
   );
   process.exit(1);
 }
