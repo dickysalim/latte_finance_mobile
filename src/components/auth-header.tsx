@@ -1,13 +1,16 @@
-import { StyleSheet, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 
-import { fontFamily, palette, spacing } from '@/theme';
+import { palette, spacing } from '@/theme';
 import { ThemedText } from './themed-text';
 
-/** Wordmark, page title and one line of help. Same top of every auth screen. */
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+const logo = require('../../assets/brand/logo.png');
+
+/** Logo, page title and one line of help. Same top of every auth screen. */
 export function AuthHeader({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
     <View style={styles.wrap}>
-      <ThemedText style={styles.brand}>Latte Finance</ThemedText>
+      <Image source={logo} style={styles.logo} resizeMode="contain" accessibilityLabel="Latte Finance" />
       <View style={styles.text}>
         <ThemedText variant="title" accessibilityRole="header">
           {title}
@@ -20,12 +23,7 @@ export function AuthHeader({ title, subtitle }: { title: string; subtitle?: stri
 
 const styles = StyleSheet.create({
   wrap: { gap: spacing.lg },
-  brand: {
-    fontFamily: fontFamily.headingBold,
-    fontSize: 15,
-    letterSpacing: 0.2,
-    color: palette.textHeading,
-  },
+  logo: { width: 180, height: 58 },
   text: { gap: spacing.xs },
   subtitle: { color: palette.textMuted },
 });
